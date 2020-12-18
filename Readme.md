@@ -47,6 +47,6 @@ react-native run-ios
 
 ## Run Real Device
 
-- Open Xcode (`cd ios` and `open ShoppingApp.xcodeproj`)
+- Open Xcode (`cd ios` and `open MoviesApp.xcodeproj`)
 - Select your iPhone and click play button
 
