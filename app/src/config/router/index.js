@@ -38,7 +38,7 @@ function MyTabs() {
         name="ShortLists"
         component={ShortList}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'ShortList',
           tabBarIcon: ({color, size}) => (
             <Image
               style={[styles.tabImage, {tintColor: color}]}
