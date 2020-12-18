@@ -34,7 +34,13 @@ export const MoviesListItem = ({item, addShortListData, shortListData}) => {
           source={ic_heart}
           resizeMode={'contain'}
         />
-        <Text style={styles.shortListText}>{'ShortList'}</Text>
+        <Text
+          style={[
+            styles.shortListText,
+            isSelected && styles.selectedShortListText,
+          ]}>
+          {'ShortList'}
+        </Text>
       </TouchableOpacity>
     </View>
   );

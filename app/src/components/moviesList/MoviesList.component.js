@@ -87,10 +87,12 @@ class MoviesList extends React.Component {
     }
   };
   render() {
+    const {loading} = this.props.MoviesReducer;
     return (
       <View style={styles.container}>
         {this.renderHeader()}
         {this.renderMoviesList()}
+        {loading && <EmptyView text={LOADING} />}
       </View>
     );
   }

@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
     flex: 0.5,
     borderWidth: widthScale(0.5),
     borderColor: colors.blueGray,
+    margin: widthScale(2),
+    borderRadius: moderateScale(2),
   },
   productImage: {
     height: Dimensions.get('screen').height / 3.5,
@@ -54,12 +56,16 @@ export const styles = StyleSheet.create({
   shortListContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: heightScale(4),
+    paddingTop: heightScale(2),
+    paddingBottom: heightScale(4),
     width: '100%',
   },
   shortListText: {
     fontSize: normalize(12),
-    color: colors.purple,
+    color: colors.veryLightBlue,
     fontWeight: 'bold',
+  },
+  selectedShortListText: {
+    color: colors.purple,
   },
 });
