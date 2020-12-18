@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {styles} from './MoviesListItem.styles';
 import {ic_heart} from '../../assets/images/ic_heart';
+import {ic_movie_placeholder} from '../../assets/images/ic_movie_placeholder';
 
 export const MoviesListItem = ({item, addShortListData, shortListData}) => {
   let name = item.Title ? item.Title : '';
@@ -10,12 +11,14 @@ export const MoviesListItem = ({item, addShortListData, shortListData}) => {
       ? shortListData.findIndex((value) => value.imdbID === item.imdbID)
       : -1;
   isSelected = isSelected > -1;
+  let sourceImg =
+    item.Poster === 'N/A' ? ic_movie_placeholder : {uri: item.Poster};
   return (
     <View style={styles.container}>
       <Image
-        source={{uri: item.Poster}}
+        source={sourceImg}
         style={styles.productImage}
-        resizeMode={'cover'}
+        resizeMode={item.Poster === 'N/A' ? 'contain' : 'cover'}
       />
       <Text style={styles.productName} numberOfLines={1}>
         {name}

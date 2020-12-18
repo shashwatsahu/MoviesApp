@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   },
   productImage: {
     height: Dimensions.get('screen').height / 3.5,
+    width: '100%',
   },
   productName: {
     fontSize: normalize(12),
