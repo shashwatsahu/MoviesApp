@@ -4,7 +4,7 @@
 
 Clone this project
 
-`git clone https://github.com/shashwatsahu/Shopping.git `
+`git clone https://github.com/shashwatsahu/MoviesApp.git`
 
 - [Install NodeJS](https://nodejs.org/en/) on your computer.
 
