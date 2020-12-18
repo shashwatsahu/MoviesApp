@@ -8,6 +8,7 @@ const initialState = {
   },
   error: null,
   moviesData: [],
+  shortListData: [],
 };
 
 export default function MoviesReducer(state = initialState, action) {
@@ -54,7 +55,11 @@ export default function MoviesReducer(state = initialState, action) {
           ...initialState,
         },
       };
-
+    case ActionTypes.ADD_SHORT_LIST_MOVIE:
+      return {
+        ...state,
+        shortListData: action.payload,
+      };
     default:
       return state;
   }

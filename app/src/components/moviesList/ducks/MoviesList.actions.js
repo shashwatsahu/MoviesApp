@@ -40,3 +40,8 @@ function handleErrors(response) {
   }
   return response;
 }
+
+export const addShortListMovie = (data) => ({
+  type: ActionTypes.ADD_SHORT_LIST_MOVIE,
+  payload: data,
+});

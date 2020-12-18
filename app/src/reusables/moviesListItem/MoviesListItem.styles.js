@@ -43,4 +43,22 @@ export const styles = StyleSheet.create({
     color: colors.red,
     marginRight: widthScale(4),
   },
+  heartStyle: {
+    height: moderateScale(16),
+    tintColor: colors.veryLightBlue,
+  },
+  heartSelectedStyle: {
+    tintColor: colors.purple,
+  },
+  shortListContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: heightScale(4),
+    width: '100%',
+  },
+  shortListText: {
+    fontSize: normalize(12),
+    color: colors.purple,
+    fontWeight: 'bold',
+  },
 });

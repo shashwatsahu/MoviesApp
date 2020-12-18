@@ -2,15 +2,14 @@ import React from 'react';
 import {View, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as MovisAction from './ducks/MoviesList.actions';
+import * as MovisAction from '../moviesList/ducks/MoviesList.actions';
 import {MoviesListItem} from '../../reusables/moviesListItem';
-import {styles} from './MoviesList.styles';
+import {styles} from '../moviesList/MoviesList.styles';
 import {Header} from '../../reusables/header';
 import {EmptyView} from '../../reusables/emptyView/EmptyView';
-import {APP_NAME, LOADING, NO_DATA_FOUND} from '../../assets/strings';
-import {debounce} from 'lodash';
+import {SHORT_LIST, LOADING, NO_DATA_FOUND} from '../../assets/strings';
 
-class MoviesList extends React.Component {
+class ShortList extends React.Component {
   componentDidMount() {
     this.searchMovies();
   }
@@ -20,25 +19,16 @@ class MoviesList extends React.Component {
     fetchMovies(searchText);
   };
   renderHeader = () => {
-    return (
-      <Header
-        name={APP_NAME}
-        isSearch
-        onChangeText={debounce(this.onChangeText, 500)}
-      />
-    );
-  };
-  onChangeText = (text) => {
-    this.searchMovies(text);
+    return <Header name={SHORT_LIST} />;
   };
   renderMoviesList = () => {
-    const {moviesData, loading, shortListData} = this.props.MoviesReducer;
+    const {loading, shortListData} = this.props.MoviesReducer;
     return (
       <View style={[styles.container, styles.listcontainer]}>
         <FlatList
           ref={(ref) => (this.moviesScrollViewRef = ref)}
           keyExtractor={(item) => item.imdbID.toString()}
-          data={moviesData}
+          data={shortListData}
           renderItem={({item, index}) => (
             <MoviesListItem
               item={item}
@@ -55,16 +45,6 @@ class MoviesList extends React.Component {
         />
       </View>
     );
-  };
-  onScrollToTop = () => {
-    const {moviesData} = this.props.MoviesReducer;
-    if (moviesData && moviesData.length > 0) {
-      this.moviesScrollViewRef &&
-        this.moviesScrollViewRef.scrollToIndex({
-          index: 0,
-          animated: true,
-        });
-    }
   };
   addShortListData = (item) => {
     const {addShortListMovie} = this.props.actions;
@@ -105,4 +85,4 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators({...MovisAction}, dispatch),
   };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
+export default connect(mapStateToProps, mapDispatchToProps)(ShortList);
